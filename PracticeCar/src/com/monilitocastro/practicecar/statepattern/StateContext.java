@@ -48,26 +48,27 @@ public abstract class StateContext {
      * Normally only called by classes implementing the State interface.
      * @param newState the new state of this context
      */
-    public void setState(final Statelike newState) {
-    	setOldState(myState);
-        myState = newState;
+    public void setState(Statelike newState) {
+    	setOldState(this.myState);
+        this.myState = newState;
+        //System.out.println("Transitioning to new state...");
     }
     public void next( String action){
-    	myState.next(this, action);
+    	this.myState.next(this, action);
     }
     public Statelike getState(){
-    	return myState;
+    	return this.myState;
     }
 	public String getName() {
-		return name;
+		return this.name;
 	}
 	public void setName(String name) {
 		this.name = name;
 	}
 	public Statelike getOldState() {
-		return oldState;
+		return this.oldState;
 	}
-	private void setOldState(Statelike oldState) {
+	protected void setOldState(Statelike oldState) {
 		this.oldState = oldState;
 	}
 	public Set<Statelike> getPersistentState() {

@@ -12,15 +12,16 @@ public class FlyWheelTorqueApplied extends AbstractState {
 
 	public void next(StateContext context, String action) {
 		
-		System.out.println(context.getName() + ": Flywheel is turning");
+		System.out.println(context.getName() + ": Flywheel torque applied ");
 		Statelike oldState =  context.getState();
-		Statelike newState = oldState;
+		Statelike newState = null;
 		if(	(oldState instanceof EngineNotRunning)){
 			System.out.println(context.getName() + ": *aaaYEEEeeeh* *aaaYEEEeeeh* *aaaYEEEeeeh* ...");
 			int rnd = new Random().nextInt(10);
 			if(rnd<3){
 				newState = StateFactory.getNewState("EngineRunningLow");
 				System.out.println(context.getName() + ": *VROOM* *VROOM* *VROOM*");
+				context.setState(newState);
 			}else{
 				System.out.println(context.getName() + ": *sputter* *sputter* *sputter* (just keep at it)");
 			}
@@ -30,7 +31,7 @@ public class FlyWheelTorqueApplied extends AbstractState {
 		}
 		
 		
-		context.setState(newState);
+		
 	}
 
 

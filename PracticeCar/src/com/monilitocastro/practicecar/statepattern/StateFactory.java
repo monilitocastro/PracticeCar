@@ -35,6 +35,8 @@ public class StateFactory {
 			result = new StarterNotApplyingTorque();
 		}else if(newState.equals("CircuitNotCompleteToStarter") ){
 			result = new CircuitNotCompleteToStarter();
+		}else{
+			throw new IllegalStateException("Not a valid state: " + newState);
 		}
 		
 		
