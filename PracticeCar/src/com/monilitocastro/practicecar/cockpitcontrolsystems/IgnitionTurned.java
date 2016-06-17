@@ -1,4 +1,4 @@
-package com.monilitocastro.practicecar.electricalsystems;
+package com.monilitocastro.practicecar.cockpitcontrolsystems;
 
 import com.monilitocastro.practicecar.components.ElectricalSystem;
 import com.monilitocastro.practicecar.statepattern.StateContext;

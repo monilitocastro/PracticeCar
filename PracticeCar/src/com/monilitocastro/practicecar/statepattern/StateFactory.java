@@ -1,9 +1,9 @@
 package com.monilitocastro.practicecar.statepattern;
 
 import com.monilitocastro.practicecar.electricalsystems.CircuitNotCompleteToStarter;
-import com.monilitocastro.practicecar.electricalsystems.IgnitionTurned;
-import com.monilitocastro.practicecar.electricalsystems.IgnitionTurnedOff;
 import com.monilitocastro.practicecar.electricalsystems.StarterApplyingTorque;
+import com.monilitocastro.practicecar.cockpitcontrolsystems.IgnitionTurned;
+import com.monilitocastro.practicecar.cockpitcontrolsystems.IgnitionTurnedOff;
 import com.monilitocastro.practicecar.electricalsystems.CircuitCompleteToStarter;
 import com.monilitocastro.practicecar.electricalsystems.StarterNotApplyingTorque;
 import com.monilitocastro.practicecar.engine.EngineNotRunning;
