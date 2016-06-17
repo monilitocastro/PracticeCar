@@ -38,12 +38,10 @@ public class Driver{
 	}
 	
 	public void newAction(DriversActionType dat){
-		StateFactory sf = new StateFactory();
-		Statelike myState = sf.getNewState("Driver", dat);
+		Statelike myState = StateFactory.getNewState("Driver");
 		stateContext.setState(myState);
 	}
 	
 	public void next(){
-		stateContext.next();
 	} 
 }
