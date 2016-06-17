@@ -28,7 +28,7 @@ public abstract class StateContext {
 	public Statelike getOldState() {
 		return oldState;
 	}
-	public void setOldState(Statelike oldState) {
+	private void setOldState(Statelike oldState) {
 		this.oldState = oldState;
 	}
 }

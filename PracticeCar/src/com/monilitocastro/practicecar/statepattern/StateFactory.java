@@ -1,8 +1,11 @@
 package com.monilitocastro.practicecar.statepattern;
 
+import com.monilitocastro.practicecar.electricalsystems.CircuitNotCompleteToStarter;
+import com.monilitocastro.practicecar.electricalsystems.IgnitionTurned;
+import com.monilitocastro.practicecar.electricalsystems.IgnitionTurnedOff;
 import com.monilitocastro.practicecar.electricalsystems.StarterApplyingTorque;
 import com.monilitocastro.practicecar.electricalsystems.CircuitCompleteToStarter;
-import com.monilitocastro.practicecar.electricalsystemstates.IgnitionTurned;
+import com.monilitocastro.practicecar.electricalsystems.StarterNotApplyingTorque;
 import com.monilitocastro.practicecar.engine.EngineNotRunning;
 import com.monilitocastro.practicecar.engine.EngineRunningHigh;
 import com.monilitocastro.practicecar.engine.EngineRunningLow;
@@ -26,7 +29,15 @@ public class StateFactory {
 			result = new EngineRunningLow();
 		}else if(newState.equals("EngineRunningHigh") ){
 			result = new EngineRunningHigh();
+		}else if(newState.equals("IgnitionTurnedOff") ){
+			result = new IgnitionTurnedOff();
+		}else if(newState.equals("StarterNotApplyingTorque") ){
+			result = new StarterNotApplyingTorque();
+		}else if(newState.equals("CircuitNotCompleteToStarter") ){
+			result = new CircuitNotCompleteToStarter();
 		}
+		
+		
 		
 		
 		
