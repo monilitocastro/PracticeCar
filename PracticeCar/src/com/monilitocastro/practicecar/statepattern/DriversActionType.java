@@ -1,7 +1,8 @@
 package com.monilitocastro.practicecar.statepattern;
 
 public enum DriversActionType {
-	TURN_IGNITION,
+	TURN_IGNITION_ON,
+	TURN_IGNITION_OFF,
 	DEPRESS_ACCELERATOR_PEDAL,
 	DEPRESS_BRAKE_PEDAL,
 	DEPRESS_CLUTCH_PEDAL,
