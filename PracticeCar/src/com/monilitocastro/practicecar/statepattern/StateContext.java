@@ -6,11 +6,11 @@ import java.util.Map;
 import java.util.Set;
 
 public abstract class StateContext {
-    private Statelike myState;
-    private Statelike oldState;
-    private String name;
-    private Map<Statelike, Statelike> left;
-    private Set<Statelike> persistentState;
+    protected Statelike myState;
+    protected Statelike oldState;
+    protected String name;
+    protected Map<Statelike, Statelike> left;
+    protected Set<Statelike> persistentState;
     public void setMutualExclusion(Statelike l, Statelike r){
     	if(left==null){
     		left = new Hashtable<Statelike, Statelike>();
@@ -52,9 +52,6 @@ public abstract class StateContext {
     	setOldState(this.myState);
         this.myState = newState;
         //System.out.println("Transitioning to new state...");
-    }
-    public void next( String action){
-    	this.myState.next(this, action);
     }
     public Statelike getState(){
     	return this.myState;

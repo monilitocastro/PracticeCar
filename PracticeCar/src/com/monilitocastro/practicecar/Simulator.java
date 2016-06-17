@@ -10,7 +10,7 @@ public class Simulator {
 		// TODO Auto-generated method stub
 		Scanner sc = new Scanner(System.in);
 		GasPoweredVehicle mpv = GasPoweredVehicle.getInstance();
-		String cmd = sc.nextLine();
+		String cmd = "info";
 		while(!cmd.equals("exit") ){
 			mpv.command(cmd);
 			

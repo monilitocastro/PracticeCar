@@ -1,10 +1,12 @@
 package com.monilitocastro.practicecar.statepattern;
 
-import com.monilitocastro.practicecar.electricalsystems.CircuitNotCompleteToStarter;
-import com.monilitocastro.practicecar.electricalsystems.StarterApplyingTorque;
+import com.monilitocastro.practicecar.cockpitcontrolsystems.DepressAccelerator;
+import com.monilitocastro.practicecar.cockpitcontrolsystems.DepressBrake;
 import com.monilitocastro.practicecar.cockpitcontrolsystems.IgnitionTurned;
 import com.monilitocastro.practicecar.cockpitcontrolsystems.IgnitionTurnedOff;
 import com.monilitocastro.practicecar.electricalsystems.CircuitCompleteToStarter;
+import com.monilitocastro.practicecar.electricalsystems.CircuitNotCompleteToStarter;
+import com.monilitocastro.practicecar.electricalsystems.StarterApplyingTorque;
 import com.monilitocastro.practicecar.electricalsystems.StarterNotApplyingTorque;
 import com.monilitocastro.practicecar.engine.EngineNotRunning;
 import com.monilitocastro.practicecar.engine.EngineRunningHigh;
@@ -35,6 +37,10 @@ public class StateFactory {
 			result = new StarterNotApplyingTorque();
 		}else if(newState.equals("CircuitNotCompleteToStarter") ){
 			result = new CircuitNotCompleteToStarter();
+		}else if(newState.equals("DepressAccelerator") ){
+			result = new DepressAccelerator();
+		}else if(newState.equals("DepressBrake") ){
+			result = new DepressBrake();
 		}else{
 			throw new IllegalStateException("Not a valid state: " + newState);
 		}
