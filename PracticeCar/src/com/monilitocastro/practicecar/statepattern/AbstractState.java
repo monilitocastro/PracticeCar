@@ -17,4 +17,7 @@ public abstract class AbstractState implements Statelike, Comparator{
 	public void next(StateContext context, String action){
 		System.out.println("Entered state: " + this.getClass( ) );
 	}
+	protected void persistIn(StateContext context){
+		context.insertPersistentState(this);
+	}
 }

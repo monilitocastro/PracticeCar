@@ -73,7 +73,7 @@ public abstract class StateContext {
 	public Set<Statelike> getPersistentState() {
 		return persistentState;
 	}
-	private void insertPersistentState(Statelike state) {
+	public void insertPersistentState(Statelike state) {
 		if(!persistentState.contains(state)){
 			Statelike r = left.get(state);
 			if(persistentState.contains(r) ){
