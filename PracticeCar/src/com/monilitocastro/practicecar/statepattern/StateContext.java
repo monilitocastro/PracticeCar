@@ -1,6 +1,7 @@
 package com.monilitocastro.practicecar.statepattern;
 
 import java.util.Hashtable;
+import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
 
@@ -9,30 +10,31 @@ public abstract class StateContext {
     private Statelike oldState;
     private String name;
     private Map<Statelike, Statelike> left;
-    private Map<Statelike, Statelike> right;
     private Set<Statelike> persistentState;
     public void setMutualExclusion(Statelike l, Statelike r){
     	if(left==null){
     		left = new Hashtable<Statelike, Statelike>();
     	}
-    	if(right==null){
-    		right = new Hashtable<Statelike, Statelike>();
+    	if(left.containsKey(l)){
+    		throw new IllegalStateException("Please remove left Statelike object from exclusion model before re-inserting");
+    	}
+    	if(left.containsKey(r)){
+    		throw new IllegalStateException("Please remove left Statelike object from exclusion model before re-inserting");
     	}
     	left.put(l, r);
-    	right.put(r, l);
+    	left.put(r, l);
     }
+   
     public void removeMutualExclusion(Statelike l, Statelike r){
     	if(left==null){
     		left = new Hashtable<Statelike, Statelike>();
     	}
-    	if(right==null){
-    		right = new Hashtable<Statelike, Statelike>();
-    	}
+ 
     	if(left.containsKey(l)){
     		Statelike r2 = left.get(l);
     		if(r2.equals(r) ){
     			left.remove(l);
-    			right.remove(r);
+    			left.remove(r);
     		}else{
         		throw new IllegalStateException("*EXCEPTION* " + getName() + ": Cannot remove from mutual exclusion map. Right-state does not match");
         	}
@@ -72,6 +74,13 @@ public abstract class StateContext {
 		return persistentState;
 	}
 	private void insertPersistentState(Statelike state) {
-		Itera
+		if(!persistentState.contains(state)){
+			Statelike r = left.get(state);
+			if(persistentState.contains(r) ){
+				persistentState.remove(r);
+			}
+			persistentState.add(state);
+		}
+		
 	}
 }

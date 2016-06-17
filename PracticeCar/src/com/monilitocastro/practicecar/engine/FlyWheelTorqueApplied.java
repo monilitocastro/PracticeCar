@@ -2,13 +2,14 @@ package com.monilitocastro.practicecar.engine;
 
 import java.util.Random;
 
+import com.monilitocastro.practicecar.statepattern.AbstractState;
 import com.monilitocastro.practicecar.statepattern.StateContext;
 import com.monilitocastro.practicecar.statepattern.StateFactory;
 import com.monilitocastro.practicecar.statepattern.Statelike;
 
-public class FlyWheelTorqueApplied implements Statelike {
+public class FlyWheelTorqueApplied extends AbstractState {
 
-	@Override
+
 	public void next(StateContext context, String action) {
 		System.out.println(context.getName() + ": Flywheel is turning");
 		Statelike oldState =  context.getOldState();
@@ -30,5 +31,8 @@ public class FlyWheelTorqueApplied implements Statelike {
 		
 		context.setState(newState);
 	}
+
+
+
 
 }
